@@ -54,9 +54,8 @@ CREATE INDEX idx_categories_slug ON categories(slug);
 INSERT INTO categories (slug, name_ua, name_ru, sort_order) VALUES
   ('pokrivlya', 'Покрівля', 'Кровля', 1),
   ('fasad', 'Фасад', 'Фасад', 2),
-  ('ogoroja', 'Огорожа', 'Забор', 3),
-  ('termoizolatsiya', 'Теплоізоляція', 'Теплоизоляция', 4),
-  ('vodostok', 'Водостічні системи', 'Водосточные системы', 5);
+  ('termoizolatsiya', 'Теплоізоляція', 'Теплоизоляция', 3),
+  ('vodostok', 'Водостічні системи', 'Водосточные системы', 4);
 
 -- ============================================
 -- ТОВАРИ (основна таблиця)

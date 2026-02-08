@@ -119,11 +119,10 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6">
               {[
                 {slug: 'pokrivlya', name: t('navigation.roofing'), image: '/images/categories/roofing.jpg'},
                 {slug: 'fasad', name: t('navigation.facade'), image: '/images/categories/facade.jpg'},
-                {slug: 'ogoroja', name: t('navigation.fence'), image: '/images/categories/fence.jpg'},
               ].map((category) => (
                 <Link
                   key={category.slug}

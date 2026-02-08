@@ -6,7 +6,6 @@
  *  ─ Профнастил        (всі підкатегорії)
  *  ─ Бітумна черепиця  (aquaizol, iko, tegola, kerabit, btm)
  *  ─ Водостічні системи (profil, rainway, bryza)
- *  ─ Забори/огорожа    (євроштакетник, секційний, жалюзі)
  *  ─ Сайдинг           (якщо є)
  *
  * Для кожного товару збирає:
@@ -180,23 +179,6 @@ const CATEGORIES = [
     category: 'Водостічні системи',
     subcategory: 'Bryza',
     url: '/ua/vodostochnye-sistemy/bryza/',
-  },
-
-  // ── Забори / Огорожа ───────────────────────────
-  {
-    category: 'Забори та огорожа',
-    subcategory: 'Євроштакетник',
-    url: '/ua/zabory-ograzhdeniya/evroshtaketnyk/',
-  },
-  {
-    category: 'Забори та огорожа',
-    subcategory: 'Секційний',
-    url: '/ua/zabory-ograzhdeniya/sekcionnyj/',
-  },
-  {
-    category: 'Забори та огорожа',
-    subcategory: 'Жалюзі',
-    url: '/ua/zabory-ograzhdeniya/zhalyuzi/',
   },
 
   // ── Сайдинг ─────────────────────────────────────

@@ -90,8 +90,7 @@ docker exec -it rocky-postgres psql -U rocky -d rocky_builder
 # Додайте тестові категорії
 INSERT INTO categories (slug, name_ua, name_ru) VALUES 
   ('pokrivlya', 'Покрівля', 'Кровля'),
-  ('fasad', 'Фасад', 'Фасад'),
-  ('ogoroja', 'Огорожа', 'Забор');
+  ('fasad', 'Фасад', 'Фасад');
 
 # Додайте тестовий товар
 INSERT INTO products (slug, name_ua, name_ru, description_ua, base_price, category_id, in_stock, is_active)
