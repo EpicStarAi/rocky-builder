@@ -20,12 +20,12 @@ export const metadata = {
 
 export default async function LocaleLayout({
   children,
-  params: {locale}
+  params,
 }: {
   children: React.ReactNode;
-  params: {locale: string};
+  params: Promise<{locale: string}>;
 }) {
-  // Отримуємо повідомлення для поточної локалі
+  const {locale} = await params;
   const messages = await getMessages();
 
   return (
