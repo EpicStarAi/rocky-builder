@@ -19,6 +19,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'www.rocky.net.ua',
+      },
+      {
+        protocol: 'https',
         hostname: '*.cloudinary.com',
       },
     ],

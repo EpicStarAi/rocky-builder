@@ -50,7 +50,17 @@
     "priceRange": "Диапазон цен",
     "brands": "Бренды",
     "inStockOnly": "Только в наличии",
-    "resetFilters": "Сбросить фильтры"
+    "resetFilters": "Сбросить фильтры",
+    "sort": {
+      "popular": "Популярные",
+      "priceLowToHigh": "От дешевых",
+      "priceHighToLow": "От дорогих",
+      "newest": "Новинки"
+    },
+    "productCard": {
+      "perUnit": "за {unit}",
+      "viewDetails": "Подробнее"
+    }
   },
   "cart": {
     "title": "Корзина",
