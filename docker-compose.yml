@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  # PostgreSQL - основна база даних
+  postgres:
+    image: postgres:16-alpine
+    container_name: rocky-postgres
+    environment:
+      POSTGRES_USER: rocky
+      POSTGRES_PASSWORD: rocky_pass_2024
+      POSTGRES_DB: rocky_builder
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rocky"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis - кеш та сесії
+  redis:
+    image: redis:7-alpine
+    container_name: rocky-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  # Meilisearch - пошуковий движок
+  meilisearch:
+    image: getmeili/meilisearch:v1.5
+    container_name: rocky-meilisearch
+    environment:
+      MEILI_MASTER_KEY: rocky_meili_master_key_2024
+      MEILI_ENV: development
+    ports:
+      - "7700:7700"
+    volumes:
+      - meilisearch_data:/meili_data
+
+  # n8n - автоматизація та парсинг
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: rocky-n8n
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=rocky_builder
+      - DB_POSTGRESDB_USER=rocky
+      - DB_POSTGRESDB_PASSWORD=rocky_pass_2024
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=rocky2024
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=Europe/Kiev
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n-workflows:/workflows
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # Medusa Backend - e-commerce engine
+  medusa:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: rocky-medusa
+    environment:
+      DATABASE_URL: postgres://rocky:rocky_pass_2024@postgres:5432/rocky_builder
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: rocky_jwt_secret_super_secure_2024
+      COOKIE_SECRET: rocky_cookie_secret_super_secure_2024
+      MEDUSA_ADMIN_ONBOARDING_TYPE: nextjs
+      STORE_CORS: http://localhost:3000,http://localhost:7001
+      ADMIN_CORS: http://localhost:3000,http://localhost:7001
+    ports:
+      - "9000:9000"
+      - "7001:7001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    command: >
+      sh -c "
+        npm run build &&
+        npx medusa migrations run &&
+        npm run seed &&
+        npm run dev
+      "
+
+volumes:
+  postgres_data:
+  redis_data:
+  meilisearch_data:
+  n8n_data:
+
+networks:
+  default:
+    name: rocky-network

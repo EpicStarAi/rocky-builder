@@ -1,0 +1,152 @@
+{
+  "common": {
+    "search": "Пошук",
+    "cart": "Кошик",
+    "catalog": "Каталог",
+    "account": "Особистий кабінет",
+    "login": "Увійти",
+    "register": "Реєстрація",
+    "logout": "Вийти",
+    "price": "Ціна",
+    "inStock": "В наявності",
+    "outOfStock": "Немає в наявності",
+    "addToCart": "Додати в кошик",
+    "buyNow": "Купити зараз",
+    "quickOrder": "Швидке замовлення",
+    "loading": "Завантаження...",
+    "error": "Помилка",
+    "noResults": "Нічого не знайдено",
+    "showMore": "Показати більше",
+    "close": "Закрити"
+  },
+  "header": {
+    "slogan": "Професійні будівельні матеріали",
+    "phone": "+38 (050) 123-45-67",
+    "workingHours": "Пн-Пт: 9:00 - 18:00"
+  },
+  "navigation": {
+    "roofing": "Покрівля",
+    "facade": "Фасад",
+    "fence": "Огорожа",
+    "insulation": "Теплоізоляція",
+    "drainage": "Водостоки",
+    "calculators": "Калькулятори",
+    "delivery": "Доставка та оплата",
+    "about": "Про нас",
+    "contacts": "Контакти"
+  },
+  "home": {
+    "hero": {
+      "title": "ROCKY BUILDER",
+      "subtitle": "Надійні матеріали для вашого будівництва",
+      "description": "Комплексні рішення для покрівлі, фасаду та огорожі. Якість європейських виробників за доступними цінами.",
+      "ctaPrimary": "Переглянути каталог",
+      "ctaSecondary": "Калькулятор матеріалів"
+    },
+    "features": {
+      "quality": {
+        "title": "Гарантія якості",
+        "description": "Офіційні представництва провідних виробників"
+      },
+      "delivery": {
+        "title": "Швидка доставка",
+        "description": "Нова Пошта по всій Україні"
+      },
+      "support": {
+        "title": "Технічна підтримка",
+        "description": "Консультації професійних фахівців"
+      },
+      "prices": {
+        "title": "Вигідні ціни",
+        "description": "Прямі поставки від виробників"
+      }
+    }
+  },
+  "products": {
+    "filters": "Фільтри",
+    "sortBy": "Сортувати за",
+    "priceRange": "Діапазон цін",
+    "brands": "Бренди",
+    "inStockOnly": "Тільки в наявності",
+    "resetFilters": "Скинути фільтри",
+    "sort": {
+      "popular": "Популярні",
+      "priceLowToHigh": "Від дешевих",
+      "priceHighToLow": "Від дорогих",
+      "newest": "Новинки"
+    },
+    "productCard": {
+      "perUnit": "за {unit}",
+      "viewDetails": "Детальніше"
+    }
+  },
+  "cart": {
+    "title": "Кошик",
+    "empty": "Ваш кошик порожній",
+    "continueShopping": "Продовжити покупки",
+    "subtotal": "Проміжний підсумок",
+    "discount": "Знижка",
+    "shipping": "Доставка",
+    "total": "Разом",
+    "proceedToCheckout": "Оформити замовлення",
+    "removeItem": "Видалити",
+    "quantity": "Кількість"
+  },
+  "checkout": {
+    "title": "Оформлення замовлення",
+    "contactInfo": "Контактна інформація",
+    "deliveryAddress": "Адреса доставки",
+    "deliveryMethod": "Спосіб доставки",
+    "paymentMethod": "Спосіб оплати",
+    "orderSummary": "Підсумок замовлення",
+    "placeOrder": "Оформити замовлення",
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
+    "phone": "Телефон",
+    "email": "Email",
+    "city": "Місто",
+    "deliveryMethods": {
+      "novaPoshta": "Нова Пошта",
+      "selfPickup": "Самовивіз"
+    },
+    "paymentMethods": {
+      "liqpay": "Онлайн оплата (LiqPay)",
+      "cashOnDelivery": "Оплата при отриманні"
+    }
+  },
+  "calculator": {
+    "title": "Калькулятор матеріалів",
+    "roofing": "Покрівля",
+    "brick": "Цегла",
+    "concrete": "Бетон",
+    "paint": "Фарба",
+    "dimensions": "Розміри",
+    "length": "Довжина (м)",
+    "width": "Ширина (м)",
+    "height": "Висота (м)",
+    "calculate": "Розрахувати",
+    "result": "Результат розрахунку",
+    "totalArea": "Загальна площа",
+    "quantity": "Кількість",
+    "addAllToCart": "Додати все до кошика"
+  },
+  "footer": {
+    "about": {
+      "title": "ROCKY BUILDER",
+      "description": "Професійні будівельні матеріали для покрівлі, фасаду та огорожі."
+    },
+    "contacts": {
+      "title": "Контакти",
+      "address": "м. Бровари, вул. Ш.-Алейхема, 40",
+      "phone": "+38 (050) 123-45-67",
+      "email": "info@rocky-builder.ua"
+    },
+    "workingHours": {
+      "title": "Графік роботи",
+      "weekdays": "Пн-Пт: 9:00 - 18:00",
+      "saturday": "Сб: 9:00 - 15:00",
+      "sunday": "Нд: Вихідний"
+    },
+    "copyright": "© 2024 ROCKY BUILDER. Всі права захищені."
+  }
+}

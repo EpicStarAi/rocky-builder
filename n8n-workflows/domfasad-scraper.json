@@ -1,0 +1,174 @@
+{
+  "name": "DomFasad Product Scraper",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "base_url",
+              "value": "https://domfasad.com.ua"
+            },
+            {
+              "name": "category_url",
+              "value": "/ua/terrasnaya-doska-dpk/"
+            }
+          ]
+        }
+      },
+      "name": "Set Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$node[\"Set Config\"].json[\"base_url\"]}}{{$node[\"Set Config\"].json[\"category_url\"]}}",
+        "options": {
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "User-Agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+              },
+              {
+                "name": "Accept-Language",
+                "value": "uk-UA,uk;q=0.9,ru;q=0.8,en;q=0.7"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Fetch Category Page",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse HTML and extract product URLs using Cheerio\nconst cheerio = require('cheerio');\nconst html = $input.item.json.data;\nconst $ = cheerio.load(html);\n\nconst products = [];\n\n// DomFasad uses product cards with specific selectors\n$('.product-card, .product-item, [data-product-id]').each((i, el) => {\n  const $el = $(el);\n  \n  // Extract product URL\n  const link = $el.find('a.product-link, a[href*=\"/terrasnaya-doska/\"]').first().attr('href');\n  \n  if (link) {\n    products.push({\n      url: link.startsWith('http') ? link : `https://domfasad.com.ua${link}`,\n      source: 'domfasad'\n    });\n  }\n});\n\n// Alternative selector if primary doesn't work\nif (products.length === 0) {\n  $('a[href*=\"/terrasnaya-doska/\"]').each((i, el) => {\n    const href = $(el).attr('href');\n    if (href && href.includes('/terrasnaya-doska/') && /\\d+/.test(href)) {\n      products.push({\n        url: href.startsWith('http') ? href : `https://domfasad.com.ua${href}`,\n        source: 'domfasad'\n      });\n    }\n  });\n}\n\n// Remove duplicates\nconst uniqueProducts = [...new Map(products.map(p => [p.url, p])).values()];\n\nconsole.log(`Found ${uniqueProducts.length} products`);\n\nreturn uniqueProducts.map(p => ({json: p}));"
+      },
+      "name": "Extract Product URLs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 5,
+        "options": {
+          "waitBetweenBatches": 2000
+        }
+      },
+      "name": "Loop Over Products",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$json[\"url\"]}}",
+        "options": {
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "User-Agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Fetch Product Page",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse individual product page\nconst cheerio = require('cheerio');\nconst html = $input.item.json.data;\nconst $ = cheerio.load(html);\nconst url = $input.item.json.url;\n\nconst product = {\n  source: 'domfasad',\n  external_id: url.match(/\\/(\\d+)\\/?$/)?.[1] || url.split('/').filter(Boolean).pop(),\n  external_url: url,\n  name_ua: '',\n  name_ru: '',\n  description_ua: '',\n  price: null,\n  old_price: null,\n  unit: 'шт',\n  images: [],\n  attributes: {},\n  in_stock: true,\n  brand: '',\n  sku: ''\n};\n\n// Extract title\nproduct.name_ua = $('h1').first().text().trim();\nproduct.name_ru = product.name_ua; // Fallback\n\n// Extract price\nconst priceText = $('.price-new, .product-price, [data-price]').first().text();\nif (priceText) {\n  product.price = parseFloat(priceText.replace(/[^\\d.,]/g, '').replace(',', '.'));\n}\n\nconst oldPriceText = $('.price-old, .old-price').first().text();\nif (oldPriceText) {\n  product.old_price = parseFloat(oldPriceText.replace(/[^\\d.,]/g, '').replace(',', '.'));\n}\n\n// Extract description\nconst desc = $('.product-description, #tab-description, .description').first().html();\nif (desc) {\n  product.description_ua = desc.trim();\n}\n\n// Extract images\n$('.product-image img, .product-gallery img, [data-image]').each((i, el) => {\n  const src = $(el).attr('src') || $(el).attr('data-src') || $(el).attr('data-image');\n  if (src && !src.includes('placeholder')) {\n    const fullUrl = src.startsWith('http') ? src : `https://domfasad.com.ua${src}`;\n    if (!product.images.includes(fullUrl)) {\n      product.images.push(fullUrl);\n    }\n  }\n});\n\n// Extract SKU/Article\nconst skuText = $('.sku, .article, [data-sku]').first().text();\nif (skuText) {\n  product.sku = skuText.replace(/[^A-Z0-9-]/gi, '').trim();\n}\n\n// Extract brand\nconst brandText = $('.brand, [data-brand], .manufacturer').first().text();\nif (brandText) {\n  product.brand = brandText.trim();\n}\n\n// Extract attributes/specifications\n$('.product-specs tr, .specifications tr, .attributes tr').each((i, el) => {\n  const $row = $(el);\n  const key = $row.find('td:first-child, th').text().trim();\n  const value = $row.find('td:last-child').text().trim();\n  \n  if (key && value && key !== value) {\n    // Normalize keys\n    const normalizedKey = key.toLowerCase()\n      .replace(/[^a-zа-я0-9]+/g, '_')\n      .replace(/^_|_$/g, '');\n    product.attributes[normalizedKey] = value;\n  }\n});\n\n// Check stock status\nconst stockIndicator = $('.out-of-stock, .not-available').length;\nproduct.in_stock = stockIndicator === 0;\n\nreturn [{json: product}];"
+      },
+      "name": "Parse Product Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO product_sources (product_id, source_id, external_id, external_url, external_price, external_name, raw_data, last_scraped_at)\nVALUES (\n  (SELECT id FROM products WHERE slug = $1 LIMIT 1),\n  (SELECT id FROM sources WHERE name = 'domfasad'),\n  $2,\n  $3,\n  $4,\n  $5,\n  $6::jsonb,\n  NOW()\n)\nON CONFLICT (source_id, external_id) DO UPDATE SET\n  external_price = EXCLUDED.external_price,\n  external_name = EXCLUDED.external_name,\n  raw_data = EXCLUDED.raw_data,\n  last_scraped_at = NOW()\nRETURNING *;",
+        "additionalFields": {
+          "queryParameters": "={{ [\n  $json.slug || $json.external_id,\n  $json.external_id,\n  $json.external_url,\n  $json.price,\n  $json.name_ua,\n  JSON.stringify($json)\n] }}"
+        }
+      },
+      "name": "Save to PostgreSQL",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [1650, 300],
+      "credentials": {
+        "postgres": {
+          "id": "1",
+          "name": "PostgreSQL - ROCKY BUILDER"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"Loop Over Products\"].json[\"completed\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "Check If Done",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1850, 300]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [[{"node": "Set Config", "type": "main", "index": 0}]]
+    },
+    "Set Config": {
+      "main": [[{"node": "Fetch Category Page", "type": "main", "index": 0}]]
+    },
+    "Fetch Category Page": {
+      "main": [[{"node": "Extract Product URLs", "type": "main", "index": 0}]]
+    },
+    "Extract Product URLs": {
+      "main": [[{"node": "Loop Over Products", "type": "main", "index": 0}]]
+    },
+    "Loop Over Products": {
+      "main": [[{"node": "Fetch Product Page", "type": "main", "index": 0}]]
+    },
+    "Fetch Product Page": {
+      "main": [[{"node": "Parse Product Data", "type": "main", "index": 0}]]
+    },
+    "Parse Product Data": {
+      "main": [[{"node": "Save to PostgreSQL", "type": "main", "index": 0}]]
+    },
+    "Save to PostgreSQL": {
+      "main": [[{"node": "Check If Done", "type": "main", "index": 0}]]
+    },
+    "Check If Done": {
+      "main": [
+        [],
+        [{"node": "Loop Over Products", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": null,
+  "tags": ["scraping", "domfasad", "products"]
+}
