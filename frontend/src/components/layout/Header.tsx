@@ -14,9 +14,11 @@ export function Header() {
   const locale = pathname.split('/')[1];
 
   const navigation = [
-    {name: locale === 'ru' ? 'Термопанели' : 'Термопанелі', href: `/${locale}/products/termopaneli`},
-    {name: locale === 'ru' ? 'Цвета' : 'Кольори', href: `/${locale}/products/kolory`},
-    {name: locale === 'ru' ? 'Монтаж' : 'Монтаж', href: `/${locale}/products/montazh`},
+    {name: locale === 'ru' ? 'Термопанели' : 'Термопанелі', href: `/${locale}/products/termopaneli-fasadni`},
+    {name: locale === 'ru' ? 'Сайдинг' : 'Сайдинг', href: `/${locale}/products/saiding`},
+    {name: locale === 'ru' ? 'Черепица' : 'Черепиця', href: `/${locale}/products/cherepytsya`},
+    {name: locale === 'ru' ? 'Профнастил' : 'Профнастил', href: `/${locale}/products/profnastyl`},
+    {name: locale === 'ru' ? 'Каталог' : 'Каталог', href: `/${locale}/products`},
     {name: t('navigation.delivery'), href: `/${locale}/delivery`},
   ];
 

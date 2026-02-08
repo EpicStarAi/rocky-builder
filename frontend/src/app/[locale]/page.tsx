@@ -6,6 +6,7 @@ import {usePathname} from 'next/navigation';
 import {ArrowRight, Shield, Truck, HeadphonesIcon, TrendingDown} from 'lucide-react';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
+import {categories} from '@/data/products';
 
 export default function HomePage() {
   const t = useTranslations();
@@ -124,22 +125,31 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {slug: 'termopaneli', name: locale === 'ru' ? 'Термопанели ROCKY' : 'Термопанелі ROCKY', image: 'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-price/51.png'},
-                {slug: 'kolory', name: locale === 'ru' ? 'Цвета и фактуры' : 'Кольори та фактури', image: 'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-colors/1.jpg'},
-                {slug: 'montazh', name: locale === 'ru' ? 'Монтаж под ключ' : 'Монтаж під ключ', image: 'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-foto-obektu/055-chernomorsk-kolotui-935-tsokol-660/21.jpg'},
-              ].map((category) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {categories.slice(0, 8).map((category) => (
                 <Link
                   key={category.slug}
                   href={`/${locale}/products/${category.slug}`}
                   className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200"
                 >
+                  {category.image && (
+                    <img
+                      src={category.image}
+                      alt={locale === 'ru' ? category.nameRu : category.nameUa}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-brand-gold-400 transition-colors">
-                      {category.name}
+                    <h3 className="text-xl font-bold text-white group-hover:text-brand-gold-400 transition-colors">
+                      {locale === 'ru' ? category.nameRu : category.nameUa}
                     </h3>
+                    {category.productCount && (
+                      <p className="text-sm text-gray-300 mt-1">
+                        {category.productCount} {locale === 'ru' ? 'товаров' : 'товарів'}
+                      </p>
+                    )}
                   </div>
                 </Link>
               ))}

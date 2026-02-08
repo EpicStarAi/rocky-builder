@@ -21,6 +21,7 @@ export default function CategoryPage() {
 
   const [sortBy, setSortBy] = useState<SortOption>('popular');
   const [inStockOnly, setInStockOnly] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(24);
 
   const category = categories.find((c) => c.slug === categorySlug);
   const categoryProducts = products.filter((p) => p.category === categorySlug);
@@ -141,24 +142,38 @@ export default function CategoryPage() {
                 </p>
               </div>
             ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    slug={product.slug}
-                    name={locale === 'ru' ? product.nameRu : product.name}
-                    description={locale === 'ru' ? product.descriptionRu : product.description}
-                    price={product.price}
-                    oldPrice={product.oldPrice}
-                    unit={product.unit}
-                    image={product.image}
-                    inStock={product.inStock}
-                    specs={product.specs}
-                    locale={locale}
-                    categorySlug={categorySlug}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {filteredProducts.slice(0, visibleCount).map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      slug={product.slug}
+                      name={locale === 'ru' ? product.nameRu : product.name}
+                      description={locale === 'ru' ? product.descriptionRu : product.description}
+                      price={product.price}
+                      oldPrice={product.oldPrice}
+                      unit={product.unit}
+                      image={product.image}
+                      inStock={product.inStock}
+                      specs={product.specs}
+                      locale={locale}
+                      categorySlug={categorySlug}
+                    />
+                  ))}
+                </div>
+                {visibleCount < filteredProducts.length && (
+                  <div className="text-center mt-10">
+                    <button
+                      onClick={() => setVisibleCount(prev => prev + 24)}
+                      className="px-8 py-3 bg-brand-gold-500 text-brand-dark-900 font-medium rounded-lg hover:bg-brand-gold-400 transition-colors"
+                    >
+                      {locale === 'ru'
+                        ? `Показать ещё (${Math.min(24, filteredProducts.length - visibleCount)} из ${filteredProducts.length - visibleCount})`
+                        : `Показати ще (${Math.min(24, filteredProducts.length - visibleCount)} з ${filteredProducts.length - visibleCount})`}
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
