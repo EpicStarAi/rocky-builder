@@ -1,11 +1,16 @@
+'use client';
+
 import {useTranslations} from 'next-intl';
 import Link from 'next/link';
+import {usePathname} from 'next/navigation';
 import {ArrowRight, Shield, Truck, HeadphonesIcon, TrendingDown} from 'lucide-react';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
 
 export default function HomePage() {
   const t = useTranslations();
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
 
   return (
     <>
@@ -34,14 +39,14 @@ export default function HomePage() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/products"
+                    href={`/${locale}/products`}
                     className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-gray-900 bg-brand-gold-500 hover:bg-brand-gold-400 transition-colors group"
                   >
                     {t('home.hero.ctaPrimary')}
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link
-                    href="/calculators"
+                    href={`/${locale}/calculators`}
                     className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-colors"
                   >
                     {t('home.hero.ctaSecondary')}
@@ -119,14 +124,15 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                {slug: 'pokrivlya', name: t('navigation.roofing'), image: '/images/categories/roofing.jpg'},
-                {slug: 'fasad', name: t('navigation.facade'), image: '/images/categories/facade.jpg'},
+                {slug: 'termopaneli', name: locale === 'ru' ? 'Термопанели ROCKY' : 'Термопанелі ROCKY', image: 'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-price/51.png'},
+                {slug: 'kolory', name: locale === 'ru' ? 'Цвета и фактуры' : 'Кольори та фактури', image: 'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-colors/1.jpg'},
+                {slug: 'montazh', name: locale === 'ru' ? 'Монтаж под ключ' : 'Монтаж під ключ', image: 'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-foto-obektu/055-chernomorsk-kolotui-935-tsokol-660/21.jpg'},
               ].map((category) => (
                 <Link
                   key={category.slug}
-                  href={`/products/${category.slug}`}
+                  href={`/${locale}/products/${category.slug}`}
                   className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200"
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />

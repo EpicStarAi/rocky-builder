@@ -14,9 +14,9 @@ export function Header() {
   const locale = pathname.split('/')[1];
 
   const navigation = [
-    {name: t('navigation.roofing'), href: `/${locale}/products/pokrivlya`},
-    {name: t('navigation.facade'), href: `/${locale}/products/fasad`},
-    {name: t('navigation.calculators'), href: `/${locale}/calculators`},
+    {name: locale === 'ru' ? 'Термопанели' : 'Термопанелі', href: `/${locale}/products/termopaneli`},
+    {name: locale === 'ru' ? 'Цвета' : 'Кольори', href: `/${locale}/products/kolory`},
+    {name: locale === 'ru' ? 'Монтаж' : 'Монтаж', href: `/${locale}/products/montazh`},
     {name: t('navigation.delivery'), href: `/${locale}/delivery`},
   ];
 
