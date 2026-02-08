@@ -1,0 +1,22 @@
+{
+  "name": "rocky-builder-scrapers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Скрапери для парсингу товарів з akm.kiev.ua та domfasad.com.ua",
+  "scripts": {
+    "scrape:akm": "node src/akm-scraper.js",
+    "scrape:domfasad": "node src/domfasad-scraper.js",
+    "scrape:all": "node src/run-all.js",
+    "scrape:akm:test": "node src/akm-scraper.js --test",
+    "scrape:domfasad:test": "node src/domfasad-scraper.js --test"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0-rc.12",
+    "p-limit": "^3.1.0",
+    "winston": "^3.11.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
