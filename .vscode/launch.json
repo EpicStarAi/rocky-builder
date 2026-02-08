@@ -39,16 +39,6 @@
       }
     },
     {
-      "name": "Attach to Docker Postgres",
-      "type": "node",
-      "request": "attach",
-      "port": 5432,
-      "address": "localhost",
-      "localRoot": "${workspaceFolder}",
-      "remoteRoot": "/app",
-      "skipFiles": ["<node_internals>/**"]
-    },
-    {
       "name": "Debug n8n Workflow",
       "type": "chrome",
       "request": "launch",
