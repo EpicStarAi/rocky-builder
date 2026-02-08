@@ -1,0 +1,40 @@
+{
+  "recommendations": [
+    // Essential Extensions
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    
+    // TypeScript & React
+    "dsznajder.es7-react-js-snippets",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.npm-intellisense",
+    
+    // Docker & Infrastructure
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    
+    // Database
+    "ckolkman.vscode-postgres",
+    "redis.redis",
+    
+    // Git
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    
+    // Next.js & React
+    "burkeholland.simple-react-snippets",
+    "prisma.prisma",
+    
+    // Utilities
+    "wayou.vscode-todo-highlight",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-russian",
+    "streetsidesoftware.code-spell-checker-ukrainian",
+    
+    // API & Testing
+    "rangav.vscode-thunder-client",
+    "humao.rest-client"
+  ]
+}
