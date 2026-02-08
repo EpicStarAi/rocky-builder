@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useState} from 'react';
 import {ShoppingCart, Search, Menu, X, Phone, User} from 'lucide-react';
+import {ThemeToggle} from '@/components/ui/ThemeToggle';
 
 export function Header() {
   const t = useTranslations();
@@ -23,7 +24,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white dark:bg-brand-dark-900 border-b border-gray-200 dark:border-gray-700">
       {/* Top Bar */}
       <div className="bg-brand-dark-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,8 +69,8 @@ export function Header() {
               <span className="text-2xl font-bold text-brand-dark-900">RB</span>
             </div>
             <div>
-              <div className="text-xl font-bold text-gray-900">ROCKY BUILDER</div>
-              <div className="text-xs text-gray-500">{t('header.slogan')}</div>
+              <div className="text-xl font-bold text-gray-900 dark:text-white">ROCKY BUILDER</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">{t('header.slogan')}</div>
             </div>
           </Link>
 
@@ -79,7 +80,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-brand-gold-600 transition-colors"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-gold-600 dark:hover:text-brand-gold-400 transition-colors"
               >
                 {item.name}
               </Link>
@@ -88,18 +89,19 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <button className="p-2 text-gray-700 hover:text-brand-gold-600 transition-colors">
+            <ThemeToggle />
+            <button className="p-2 text-gray-700 dark:text-gray-300 hover:text-brand-gold-600 dark:hover:text-brand-gold-400 transition-colors">
               <Search className="w-5 h-5" />
             </button>
             <Link
               href={`/${locale}/account`}
-              className="hidden sm:flex p-2 text-gray-700 hover:text-brand-gold-600 transition-colors"
+              className="hidden sm:flex p-2 text-gray-700 dark:text-gray-300 hover:text-brand-gold-600 dark:hover:text-brand-gold-400 transition-colors"
             >
               <User className="w-5 h-5" />
             </Link>
             <Link
               href={`/${locale}/cart`}
-              className="relative p-2 text-gray-700 hover:text-brand-gold-600 transition-colors"
+              className="relative p-2 text-gray-700 dark:text-gray-300 hover:text-brand-gold-600 dark:hover:text-brand-gold-400 transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 w-5 h-5 bg-brand-gold-500 text-brand-dark-900 text-xs font-bold rounded-full flex items-center justify-center">
@@ -109,7 +111,7 @@ export function Header() {
             
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-700"
+              className="lg:hidden p-2 text-gray-700 dark:text-gray-300"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -119,13 +121,13 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
+        <div className="lg:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-900">
           <nav className="px-4 py-4 space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+                className="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-brand-dark-800 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}

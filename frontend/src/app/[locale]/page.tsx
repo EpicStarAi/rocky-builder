@@ -71,7 +71,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white dark:bg-brand-dark-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -98,15 +98,15 @@ export default function HomePage() {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="text-center space-y-4 p-6 rounded-xl hover:bg-gray-50 transition-colors"
+                  className="text-center space-y-4 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-brand-dark-800 transition-colors"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold-100">
-                    <feature.icon className="w-8 h-8 text-brand-gold-600" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold-100 dark:bg-brand-gold-900/30">
+                    <feature.icon className="w-8 h-8 text-brand-gold-600 dark:text-brand-gold-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -114,13 +114,13 @@ export default function HomePage() {
         </section>
 
         {/* Categories Preview */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50 dark:bg-brand-dark-950">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 {t('navigation.catalog')}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Широкий асортимент будівельних матеріалів для будь-яких проектів
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function HomePage() {
                 <Link
                   key={category.slug}
                   href={`/${locale}/products/${category.slug}`}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200"
+                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-brand-dark-800"
                 >
                   {category.image && (
                     <img

@@ -40,9 +40,9 @@ export default function CategoryPage() {
     return (
       <>
         <Header />
-        <main className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <main className="min-h-screen bg-gray-50 dark:bg-brand-dark-950 flex items-center justify-center">
           <div className="text-center space-y-4">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {locale === 'ru' ? 'Категория не найдена' : 'Категорію не знайдено'}
             </h1>
             <Link
@@ -61,11 +61,11 @@ export default function CategoryPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50 dark:bg-brand-dark-950">
         {/* Breadcrumb */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white dark:bg-brand-dark-900 border-b border-gray-200 dark:border-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <nav className="flex items-center gap-2 text-sm text-gray-500">
+            <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
               <Link href={`/${locale}`} className="hover:text-brand-gold-600 transition-colors">
                 {locale === 'ru' ? 'Главная' : 'Головна'}
               </Link>
@@ -74,7 +74,7 @@ export default function CategoryPage() {
                 {t('navigation.catalog')}
               </Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-gray-900 font-medium">
+              <span className="text-gray-900 dark:text-white font-medium">
                 {locale === 'ru' ? category.nameRu : category.nameUa}
               </span>
             </nav>
@@ -94,10 +94,10 @@ export default function CategoryPage() {
         </section>
 
         {/* Toolbar */}
-        <section className="bg-white border-b border-gray-200">
+        <section className="bg-white dark:bg-brand-dark-900 border-b border-gray-200 dark:border-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 {locale === 'ru'
                   ? `${filteredProducts.length} товаров`
                   : `${filteredProducts.length} товарів`}
@@ -109,7 +109,7 @@ export default function CategoryPage() {
                     type="checkbox"
                     checked={inStockOnly}
                     onChange={(e) => setInStockOnly(e.target.checked)}
-                    className="w-4 h-4 rounded border-gray-300 text-brand-gold-500 focus:ring-brand-gold-500"
+                    className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-brand-gold-500 focus:ring-brand-gold-500 dark:bg-brand-dark-800"
                   />
                   {t('products.inStockOnly')}
                 </label>
@@ -119,7 +119,7 @@ export default function CategoryPage() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as SortOption)}
-                    className="text-sm border-gray-300 rounded-lg focus:ring-brand-gold-500 focus:border-brand-gold-500"
+                    className="text-sm border-gray-300 dark:border-gray-600 dark:bg-brand-dark-800 dark:text-gray-300 rounded-lg focus:ring-brand-gold-500 focus:border-brand-gold-500"
                   >
                     <option value="popular">{t('products.sort.popular')}</option>
                     <option value="price-asc">{t('products.sort.priceLowToHigh')}</option>
@@ -137,7 +137,7 @@ export default function CategoryPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {filteredProducts.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-lg text-gray-500">
+                <p className="text-lg text-gray-500 dark:text-gray-400">
                   {locale === 'ru' ? 'Товаров не найдено' : 'Товарів не знайдено'}
                 </p>
               </div>

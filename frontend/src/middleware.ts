@@ -12,7 +12,7 @@ export default createMiddleware({
   localePrefix: 'always',
   
   // Автоматичне визначення локалі на основі Accept-Language заголовка
-  localeDetection: true,
+  localeDetection: false,
 });
 
 export const config = {

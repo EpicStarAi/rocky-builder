@@ -1,6 +1,7 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {Inter} from 'next/font/google';
+import {ThemeProvider} from '@/components/providers/ThemeProvider';
 import '../globals.css';
 
 const inter = Inter({
@@ -29,10 +30,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={inter.variable}>
-      <body className="min-h-screen bg-gray-50 antialiased">
+    <html lang={locale} className={inter.variable} suppressHydrationWarning>
+      <body className="min-h-screen bg-gray-50 dark:bg-brand-dark-950 antialiased transition-colors">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            {children}
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -16,7 +16,7 @@ export default function ProductsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50 dark:bg-brand-dark-950">
         {/* Page Header */}
         <section className="bg-brand-dark-900 text-white py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +32,7 @@ export default function ProductsPage() {
         {/* Categories Grid */}
         <section className="py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
               {locale === 'ru' ? 'Категории товаров' : 'Категорії товарів'}
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -40,9 +40,9 @@ export default function ProductsPage() {
                 <Link
                   key={cat.slug}
                   href={`/${locale}/products/${cat.slug}`}
-                  className="group relative rounded-xl overflow-hidden bg-white border border-gray-200 hover:shadow-lg hover:border-brand-gold-300 transition-all"
+                  className="group relative rounded-xl overflow-hidden bg-white dark:bg-brand-dark-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-brand-gold-300 dark:hover:border-brand-gold-500 transition-all"
                 >
-                  <div className="aspect-[16/9] overflow-hidden bg-gray-100">
+                  <div className="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-brand-dark-900">
                     {cat.image ? (
                       <img
                         src={cat.image}
@@ -52,16 +52,16 @@ export default function ProductsPage() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <Package className="w-12 h-12 text-gray-300" />
+                        <Package className="w-12 h-12 text-gray-300 dark:text-gray-600" />
                       </div>
                     )}
                   </div>
                   <div className="p-5">
-                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-brand-gold-600 transition-colors flex items-center gap-2">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-brand-gold-600 dark:group-hover:text-brand-gold-400 transition-colors flex items-center gap-2">
                       {locale === 'ru' ? cat.nameRu : cat.nameUa}
                       <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                       {cat.productCount} {locale === 'ru' ? 'товаров' : 'товарів'}
                     </p>
                   </div>

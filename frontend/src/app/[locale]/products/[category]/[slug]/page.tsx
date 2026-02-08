@@ -32,9 +32,9 @@ export default function ProductPage() {
     return (
       <>
         <Header />
-        <main className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <main className="min-h-screen bg-gray-50 dark:bg-brand-dark-950 flex items-center justify-center">
           <div className="text-center space-y-4">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {locale === 'ru' ? 'Товар не найден' : 'Товар не знайдено'}
             </h1>
             <Link
@@ -62,11 +62,11 @@ export default function ProductPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50 dark:bg-brand-dark-950">
         {/* Breadcrumb */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white dark:bg-brand-dark-900 border-b border-gray-200 dark:border-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <nav className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+            <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
               <Link href={`/${locale}`} className="hover:text-brand-gold-600 transition-colors">
                 {locale === 'ru' ? 'Главная' : 'Головна'}
               </Link>
@@ -79,7 +79,7 @@ export default function ProductPage() {
                 {categoryName}
               </Link>
               <ChevronRight className="w-4 h-4 flex-shrink-0" />
-              <span className="text-gray-900 font-medium line-clamp-1">{name}</span>
+              <span className="text-gray-900 dark:text-white font-medium line-clamp-1">{name}</span>
             </nav>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function ProductPage() {
             <div className="grid lg:grid-cols-2 gap-10">
               {/* Images */}
               <div className="space-y-4">
-                <div className="aspect-square rounded-xl overflow-hidden bg-white border border-gray-200">
+                <div className="aspect-square rounded-xl overflow-hidden bg-white dark:bg-brand-dark-800 border border-gray-200 dark:border-gray-700">
                   <img
                     src={images[selectedImage]}
                     alt={name}
@@ -104,7 +104,7 @@ export default function ProductPage() {
                         key={i}
                         onClick={() => setSelectedImage(i)}
                         className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                          i === selectedImage ? 'border-brand-gold-500' : 'border-gray-200 hover:border-gray-300'
+                          i === selectedImage ? 'border-brand-gold-500' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                         }`}
                       >
                         <img src={img} alt="" className="w-full h-full object-cover" />
@@ -117,16 +117,16 @@ export default function ProductPage() {
               {/* Info */}
               <div className="space-y-6">
                 <div>
-                  <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">{name}</h1>
+                  <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">{name}</h1>
                   <p className="mt-1 text-sm text-gray-400">
                     {locale === 'ru' ? 'Артикул' : 'Артикул'}: {product.id.toUpperCase()}
                   </p>
                 </div>
 
                 {/* Price block */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
+                <div className="bg-white dark:bg-brand-dark-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 space-y-4">
                   <div className="flex items-end gap-3">
-                    <span className="text-3xl font-bold text-gray-900">
+                    <span className="text-3xl font-bold text-gray-900 dark:text-white">
                       {product.price.toLocaleString()} ₴
                     </span>
                     <span className="text-lg text-gray-400">/{product.unit}</span>
@@ -153,31 +153,31 @@ export default function ProductPage() {
 
                   {/* Quantity + Add to cart */}
                   <div className="flex items-center gap-4 pt-2">
-                    <div className="flex items-center border border-gray-300 rounded-lg">
+                    <div className="flex items-center border border-gray-300 dark:border-gray-600 rounded-lg">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="px-3 py-2 text-gray-600 hover:bg-gray-50 transition-colors"
+                        className="px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-brand-dark-700 transition-colors"
                       >
                         −
                       </button>
-                      <span className="px-4 py-2 text-center min-w-[3rem] font-medium">{quantity}</span>
+                      <span className="px-4 py-2 text-center min-w-[3rem] font-medium dark:text-white">{quantity}</span>
                       <button
                         onClick={() => setQuantity(quantity + 1)}
-                        className="px-3 py-2 text-gray-600 hover:bg-gray-50 transition-colors"
+                        className="px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-brand-dark-700 transition-colors"
                       >
                         +
                       </button>
                     </div>
                     <button
                       disabled={!product.inStock}
-                      className="flex-1 flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-lg bg-brand-gold-500 text-brand-dark-900 hover:bg-brand-gold-400 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-lg bg-brand-gold-500 text-brand-dark-900 hover:bg-brand-gold-400 disabled:bg-gray-200 dark:disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
                     >
                       <ShoppingCart className="w-5 h-5" />
                       {locale === 'ru' ? 'В корзину' : 'До кошика'}
                     </button>
                   </div>
 
-                  <button className="w-full py-3 text-base font-medium rounded-lg border-2 border-brand-gold-500 text-brand-gold-600 hover:bg-brand-gold-50 transition-colors">
+                  <button className="w-full py-3 text-base font-medium rounded-lg border-2 border-brand-gold-500 text-brand-gold-600 dark:text-brand-gold-400 hover:bg-brand-gold-50 dark:hover:bg-brand-gold-900/20 transition-colors">
                     {locale === 'ru' ? 'Быстрый заказ' : 'Швидке замовлення'}
                   </button>
                 </div>
@@ -189,37 +189,37 @@ export default function ProductPage() {
                     {icon: Shield, text: locale === 'ru' ? 'Гарантия качества' : 'Гарантія якості'},
                     {icon: Phone, text: locale === 'ru' ? 'Консультация' : 'Консультація'},
                   ].map((item, i) => (
-                    <div key={i} className="text-center p-3 bg-white rounded-lg border border-gray-100">
+                    <div key={i} className="text-center p-3 bg-white dark:bg-brand-dark-800 rounded-lg border border-gray-100 dark:border-gray-700">
                       <item.icon className="w-5 h-5 mx-auto text-brand-gold-500 mb-1" />
-                      <p className="text-xs text-gray-600">{item.text}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">{item.text}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Description */}
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                     {locale === 'ru' ? 'Описание' : 'Опис'}
                   </h2>
-                  <p className="text-gray-600 leading-relaxed">{description}</p>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{description}</p>
                 </div>
 
                 {/* Specs */}
                 {product.specs && Object.keys(product.specs).length > 0 && (
                   <div>
-                    <h2 className="text-lg font-semibold text-gray-900 mb-3">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                       {locale === 'ru' ? 'Характеристики' : 'Характеристики'}
                     </h2>
-                    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <div className="bg-white dark:bg-brand-dark-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
                       {Object.entries(product.specs).map(([key, value], i) => (
                         <div
                           key={key}
                           className={`flex items-center justify-between px-5 py-3.5 ${
-                            i % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+                            i % 2 === 0 ? 'bg-gray-50 dark:bg-brand-dark-900' : 'bg-white dark:bg-brand-dark-800'
                           }`}
                         >
-                          <span className="text-sm text-gray-500">{key}</span>
-                          <span className="text-sm font-medium text-gray-900">{value}</span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">{key}</span>
+                          <span className="text-sm font-medium text-gray-900 dark:text-white">{value}</span>
                         </div>
                       ))}
                     </div>
@@ -231,7 +231,7 @@ export default function ProductPage() {
             {/* Related products */}
             {relatedProducts.length > 0 && (
               <div className="mt-16">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   {locale === 'ru' ? 'Похожие товары' : 'Схожі товари'}
                 </h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -239,9 +239,9 @@ export default function ProductPage() {
                     <Link
                       key={rp.id}
                       href={`/${locale}/products/${rp.category}/${rp.slug}`}
-                      className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all"
+                      className="group bg-white dark:bg-brand-dark-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all"
                     >
-                      <div className="aspect-square bg-gray-100 overflow-hidden">
+                      <div className="aspect-square bg-gray-100 dark:bg-brand-dark-900 overflow-hidden">
                         <img
                           src={rp.image}
                           alt={locale === 'ru' ? rp.nameRu : rp.name}
@@ -250,10 +250,10 @@ export default function ProductPage() {
                         />
                       </div>
                       <div className="p-4">
-                        <h3 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-brand-gold-600 transition-colors">
+                        <h3 className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2 group-hover:text-brand-gold-600 dark:group-hover:text-brand-gold-400 transition-colors">
                           {locale === 'ru' ? rp.nameRu : rp.name}
                         </h3>
-                        <p className="mt-2 text-lg font-bold text-gray-900">
+                        <p className="mt-2 text-lg font-bold text-gray-900 dark:text-white">
                           {rp.price.toLocaleString()} ₴
                           <span className="text-sm font-normal text-gray-400 ml-1">/{rp.unit}</span>
                         </p>
@@ -268,7 +268,7 @@ export default function ProductPage() {
             <div className="mt-10">
               <Link
                 href={`/${locale}/products/${categorySlug}`}
-                className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-brand-gold-600 transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-brand-gold-600 dark:hover:text-brand-gold-400 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 {locale === 'ru' ? 'Назад к категории' : 'Назад до категорії'}
