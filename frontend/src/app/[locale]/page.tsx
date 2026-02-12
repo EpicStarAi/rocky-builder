@@ -59,7 +59,7 @@ export default function HomePage() {
                 <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-gold-500 to-brand-gold-700 p-1">
                   <div className="w-full h-full rounded-xl bg-brand-dark-900 flex items-center justify-center">
                     <img
-                      src="/images/rocky-builder-logo.svg"
+                      src="/images/rocky-builder-logo.jpg"
                       alt="ROCKY BUILDER"
                       className="w-3/4 h-3/4 object-contain"
                     />
@@ -126,7 +126,7 @@ export default function HomePage() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {categories.slice(0, 8).map((category) => (
+              {categories.map((category) => (
                 <Link
                   key={category.slug}
                   href={`/${locale}/products/${category.slug}`}
