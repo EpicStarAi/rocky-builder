@@ -59,9 +59,10 @@ export default function HomePage() {
                 <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-gold-500 to-brand-gold-700 p-1">
                   <div className="w-full h-full rounded-xl bg-brand-dark-900 flex items-center justify-center">
                     <img
-                      src="/images/rocky-builder-logo.jpg"
-                      alt="ROCKY BUILDER"
-                      className="w-3/4 h-3/4 object-contain"
+                      src="/images/PHOTO/photo_2025-11-14_23-37-54.jpg"
+                      alt="Строительство ROCKY BUILDER"
+                      className="w-full h-full object-cover rounded-xl"
+                      style={{width: '100%', height: '100%'}}
                     />
                   </div>
                 </div>

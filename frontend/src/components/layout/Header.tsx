@@ -15,6 +15,7 @@ export function Header() {
   const locale = pathname.split('/')[1];
 
   const navigation = [
+    {name: locale === 'ru' ? 'Наши работы' : 'Наші роботи', href: `/${locale}/works`},
     {name: locale === 'ru' ? 'Термопанели' : 'Термопанелі', href: `/${locale}/products/termopaneli-fasadni`},
     {name: locale === 'ru' ? 'Сайдинг' : 'Сайдинг', href: `/${locale}/products/saiding`},
     {name: locale === 'ru' ? 'Черепица' : 'Черепиця', href: `/${locale}/products/cherepytsya`},
@@ -32,8 +33,8 @@ export function Header() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <a href="tel:+380501234567" className="hover:text-brand-gold-400 transition-colors">
-                  {t('header.phone')}
+                <a href="tel:+380967534054" className="hover:text-brand-gold-400 transition-colors">
+                  0967534054
                 </a>
               </div>
               <span className="hidden md:block text-gray-400">

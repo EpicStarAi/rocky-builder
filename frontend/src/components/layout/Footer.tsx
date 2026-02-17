@@ -75,6 +75,12 @@ export function Footer() {
             </h3>
             <nav className="space-y-2 text-sm">
               <Link
+                href={`/${locale}/works`}
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                {locale === 'ru' ? 'Наши работы' : 'Наші роботи'}
+              </Link>
+              <Link
                 href={`/${locale}/products`}
                 className="block text-gray-400 hover:text-white transition-colors"
               >

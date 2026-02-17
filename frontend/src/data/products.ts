@@ -164,13 +164,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/1/photo_2026-02-12_15-22-48.jpg',
-        '/FINISH HOUSE/1/photo_2026-02-12_15-23-45.jpg',
-        '/FINISH HOUSE/1/photo_2026-02-12_15-23-50.jpg',
-        '/FINISH HOUSE/1/photo_2026-02-12_15-23-55.jpg',
-        '/FINISH HOUSE/1/photo_2026-02-12_15-24-00.jpg',
-      ],
     },
     {
       id: 'finish-2',
@@ -185,14 +178,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/2/photo_2026-02-12_15-24-13.jpg',
-        '/FINISH HOUSE/2/photo_2026-02-12_15-25-18.jpg',
-        '/FINISH HOUSE/2/photo_2026-02-12_15-25-24.jpg',
-        '/FINISH HOUSE/2/photo_2026-02-12_15-25-27.jpg',
-        '/FINISH HOUSE/2/photo_2026-02-12_15-25-33.jpg',
-        '/FINISH HOUSE/2/photo_2026-02-12_15-25-38.jpg',
-      ],
     },
     {
       id: 'finish-3',
@@ -207,15 +192,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/3/photo_2026-02-12_15-25-51.jpg',
-        '/FINISH HOUSE/3/photo_2026-02-12_15-26-06.jpg',
-        '/FINISH HOUSE/3/photo_2026-02-12_15-26-09.jpg',
-        '/FINISH HOUSE/3/photo_2026-02-12_15-26-12.jpg',
-        '/FINISH HOUSE/3/photo_2026-02-12_15-26-16.jpg',
-        '/FINISH HOUSE/3/photo_2026-02-12_15-26-19.jpg',
-        '/FINISH HOUSE/3/photo_2026-02-12_15-26-23.jpg',
-      ],
     },
     {
       id: 'finish-4',
@@ -230,11 +206,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/4/photo_2026-02-12_15-26-28.jpg',
-        '/FINISH HOUSE/4/photo_2026-02-12_15-26-42.jpg',
-        '/FINISH HOUSE/4/photo_2026-02-12_15-26-47.jpg',
-      ],
     },
     {
       id: 'finish-5',
@@ -249,13 +220,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/5/photo_2026-02-12_15-26-53.jpg',
-        '/FINISH HOUSE/5/photo_2026-02-12_15-27-08.jpg',
-        '/FINISH HOUSE/5/photo_2026-02-12_15-27-12.jpg',
-        '/FINISH HOUSE/5/photo_2026-02-12_15-27-15.jpg',
-        '/FINISH HOUSE/5/photo_2026-02-12_15-27-18.jpg',
-      ],
     },
     {
       id: 'finish-6',
@@ -270,18 +234,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/6/photo_2026-02-12_15-27-24.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-27-38.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-27-43.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-27-49.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-27-54.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-27-58.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-28-02.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-28-06.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-28-09.jpg',
-        '/FINISH HOUSE/6/photo_2026-02-12_15-28-12.jpg',
-      ],
     },
     {
       id: 'finish-7',
@@ -296,14 +248,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/7/photo_2026-02-12_15-28-16.jpg',
-        '/FINISH HOUSE/7/photo_2026-02-12_15-29-14.jpg',
-        '/FINISH HOUSE/7/photo_2026-02-12_15-29-21.jpg',
-        '/FINISH HOUSE/7/photo_2026-02-12_15-29-28.jpg',
-        '/FINISH HOUSE/7/photo_2026-02-12_15-29-32.jpg',
-        '/FINISH HOUSE/7/photo_2026-02-12_15-29-35.jpg',
-      ],
     },
     {
       id: 'finish-8',
@@ -318,18 +262,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/8/photo_2026-02-12_15-29-38.jpg',
-        '/FINISH HOUSE/8/photo_2026-02-12_15-30-10.jpg',
-        '/FINISH HOUSE/8/photo_2026-02-12_15-30-13.jpg',
-        '/FINISH HOUSE/8/photo_2026-02-12_15-30-16.jpg',
-        '/FINISH HOUSE/8/photo_2026-02-12_15-30-21.jpg',
-        '/FINISH HOUSE/8/photo_2026-02-12_15-30-27.jpg',
-        '/FINISH HOUSE/8/photo_2026-02-12_15-30-34.jpg',
-      ],
-      videos: [
-        '/FINISH HOUSE/8/video_2026-02-12_15-30-38.mp4',
-      ],
     },
     {
       id: 'finish-9',
@@ -344,11 +276,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/9/photo_2026-02-12_15-30-51.jpg',
-        '/FINISH HOUSE/9/photo_2026-02-12_15-31-04.jpg',
-        '/FINISH HOUSE/9/photo_2026-02-12_15-31-08.jpg',
-      ],
     },
     {
       id: 'finish-10',
@@ -363,20 +290,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-27.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-40.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-43.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-47.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-49.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-52.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-31-55.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-32-00.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-32-05.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-32-08.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-32-12.jpg',
-        '/FINISH HOUSE/10/photo_2026-02-12_15-32-15.jpg',
-      ],
     },
     {
       id: 'finish-11',
@@ -391,12 +304,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/11/photo_2026-02-12_15-32-18.jpg',
-        '/FINISH HOUSE/11/photo_2026-02-12_15-32-33.jpg',
-        '/FINISH HOUSE/11/photo_2026-02-12_15-32-38.jpg',
-        '/FINISH HOUSE/11/photo_2026-02-12_15-32-41.jpg',
-      ],
     },
     {
       id: 'finish-12',
@@ -411,17 +318,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/12/photo_2026-02-12_15-32-49.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-05.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-10.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-14.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-20.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-24.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-30.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-33.jpg',
-        '/FINISH HOUSE/12/photo_2026-02-12_15-33-36.jpg',
-      ],
     },
     {
       id: 'finish-13',
@@ -436,14 +332,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/13/photo_2026-02-12_15-33-45.jpg',
-        '/FINISH HOUSE/13/photo_2026-02-12_15-34-00.jpg',
-        '/FINISH HOUSE/13/photo_2026-02-12_15-34-04.jpg',
-        '/FINISH HOUSE/13/photo_2026-02-12_15-34-09.jpg',
-        '/FINISH HOUSE/13/photo_2026-02-12_15-34-12.jpg',
-        '/FINISH HOUSE/13/photo_2026-02-12_15-34-16.jpg',
-      ],
     },
     {
       id: 'finish-14',
@@ -458,12 +346,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/14/photo_2026-02-12_15-34-21.jpg',
-        '/FINISH HOUSE/14/photo_2026-02-12_15-34-37.jpg',
-        '/FINISH HOUSE/14/photo_2026-02-12_15-34-43.jpg',
-        '/FINISH HOUSE/14/photo_2026-02-12_15-34-46.jpg',
-      ],
     },
     {
       id: 'finish-15',
@@ -478,19 +360,6 @@ export const products: Product[] = [
       category: 'nashi-roboty',
       inStock: true,
       specs: {},
-      images: [
-        '/FINISH HOUSE/15/photo_2026-02-12_15-34-52.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-06.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-13.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-21.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-27.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-30.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-34.jpg',
-        '/FINISH HOUSE/15/photo_2026-02-12_15-35-42.jpg',
-      ],
-      videos: [
-        '/FINISH HOUSE/15/video_2026-02-12_15-35-10.mp4',
-      ],
     },
   {
     id: 'df-0001',
@@ -32346,19 +32215,11 @@ export const projectPhotos = [
     id: 'ph-01',
     title: 'Чорноморськ — Колотий камінь',
     titleRu: 'Черноморск — Колотый камень',
-    images: [
-      'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-foto-obektu/055-chernomorsk-kolotui-935-tsokol-660/21.jpg',
-      'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-foto-obektu/055-chernomorsk-kolotui-935-tsokol-660/22.jpg',
-    ],
   },
   {
     id: 'ph-02',
     title: 'Буча — Колотий камінь + Дикий камінь',
     titleRu: 'Буча — Колотый камень + Дикий камень',
-    images: [
-      'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-foto-obektu/051-bycha-678-kolotui-678-diki-kam/1.jpg',
-      'https://www.rocky.net.ua/foto-rocky/termopaneli/termop-foto-obektu/051-bycha-678-kolotui-678-diki-kam/2.jpg',
-    ],
   },
 ];
 
