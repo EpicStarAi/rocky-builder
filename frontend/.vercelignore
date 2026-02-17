@@ -1,0 +1,11 @@
+node_modules
+.next
+.env
+.env.*
+dist
+coverage
+*.local
+*.log
+.DS_Store
+.vscode
+*.swp
