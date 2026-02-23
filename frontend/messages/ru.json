@@ -89,6 +89,12 @@
     "proceedToCheckout": "Оформить заказ"
   },
   "footer": {
+    "contacts": {
+      "title": "Контакты",
+      "address": "Киевская область, с. Дударков, ул. Новая 18",
+      "phone": "+38 (050) 123-45-67",
+      "email": "info@rocky-builder.ua"
+    },
     "copyright": "© 2024 ROCKY BUILDER. Все права защищены."
   }
 }
