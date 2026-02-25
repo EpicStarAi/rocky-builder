@@ -122,7 +122,7 @@ export default function HomePage() {
                 {t('navigation.catalog')}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Широкий асортимент будівельних матеріалів для будь-яких проектів
+                Широкий асортимент будівельних матеріалів для будь-яких проектів | v2.0
               </p>
             </div>
 
