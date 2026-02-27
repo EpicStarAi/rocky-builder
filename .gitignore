@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # IDE
-.vscode/
+# .vscode/ - now tracked for team collaboration
 .idea/
 *.swp
 *.swo

@@ -28,11 +28,14 @@
 
 ## 🚀 Швидкий старт
 
+> **💡 Використовуєте VS Code?** Перегляньте [VSCODE_SETUP.md](./VSCODE_SETUP.md) для швидкої настройки з готовими tasks, debugging та extensions.
+
 ### Вимоги
 
 - Node.js 18+
 - Docker & Docker Compose
 - Git
+- (Рекомендовано) Visual Studio Code
 
 ### Крок 1: Клонування та встановлення
 

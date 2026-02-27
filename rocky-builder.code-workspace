@@ -1,0 +1,77 @@
+{
+  "folders": [
+    {
+      "name": "🏗️ ROCKY BUILDER (Root)",
+      "path": "."
+    },
+    {
+      "name": "🎨 Frontend (Next.js)",
+      "path": "frontend"
+    },
+    {
+      "name": "🗄️ Backend",
+      "path": "backend"
+    },
+    {
+      "name": "🤖 n8n Workflows",
+      "path": "n8n-workflows"
+    },
+    {
+      "name": "🕷️ Scrapers",
+      "path": "scrapers"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/.next": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/dist": true,
+      "**/build": true
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "ms-azuretools.vscode-docker",
+      "ckolkman.vscode-postgres"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "🚀 Start Full Stack",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "npm run dev",
+        "cwd": "${workspaceFolder}/frontend",
+        "preLaunchTask": "Docker: Start All Services"
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🏃 Quick Start: Full Stack",
+        "type": "shell",
+        "command": "docker-compose up -d && cd frontend && npm run dev",
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated"
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
+}
